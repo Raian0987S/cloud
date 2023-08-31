@@ -42,9 +42,8 @@ jobs:
         run: |
           # Set password for the local user "runneradmin"
           Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
-          
-- name: Create Ngrok Tunnel
-  run: |
-    # Create a tunnel using Ngrok to forward local port 3389
-    .\ngrok\ngrok.exe tcp 3389 > ngrok_output.txt 2>&1
-  continue-on-error: true
+
+      - name: Create Ngrok Tunnel
+        run: |
+          # Create a tunnel using Ngrok to forward local port 3389
+          .\ngrok\ngrok.exe tcp 3389
